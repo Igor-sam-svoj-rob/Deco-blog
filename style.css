@@ -82,9 +82,9 @@ nav > a {
 /* Glavna navigacija (skrivena i otkrivena na klik) */
 
 .main-nav {
-  position: fixed;
+  position: absolute;
   list-style: none;
-  width: 100%;
+  width: 94%;
   background-color: var(--tamna-pozadina);
   top: -100%;
   padding-bottom: 1rem;
@@ -119,6 +119,7 @@ nav > a {
     var(--tamna-pozadina) 50%,
     var(--glavna-pozadina) 50%
   );
+  text-shadow: 1px 1px 4px #000;
 }
 
 .hero__content {
@@ -216,6 +217,7 @@ main {
   letter-spacing: 3px;
   font-weight: bold;
   font-size: 1.6rem;
+  padding: 0 1rem;
 }
 
 .input__button:hover {
@@ -450,7 +452,7 @@ aside h2 {
 }
 
 .posts h3 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   letter-spacing: 2px;
 }
 
@@ -462,10 +464,99 @@ aside h2 {
 .text-container-desc {
   color: var(--sivi-tekst);
   font-size: 1.6rem;
+  display: flex;
+  gap: 5%;
 }
 
-time {
-  margin-right: 3rem;
+/* Kontakt stranica - Main lijeva sekcija */
+
+.contact-main {
+  width: 94%;
+  margin: 12rem auto;
+  display: flex;
+  gap: 3rem;
+}
+
+.contact-article {
+  flex-basis: 70%;
+  display: grid;
+  grid-template-rows: auto 2fr;
+  grid-template-columns: 1fr 2fr;
+  row-gap: 2rem;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.contact-main-info {
+  background-color: #fff;
+  padding: 4rem 2.5rem;
+  border: 1px solid rgba(153, 153, 153, 0.1);
+}
+
+.contact-main-info h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.contact-main-info p {
+  font-size: 1.6rem;
+  line-height: 2.5;
+}
+
+.contact-main-info hr {
+  margin: 3rem 0;
+  margin-right: 50%;
+  border: 1px solid #eaeaeb;
+}
+
+.contact-main-info i {
+  margin-right: 1rem;
+}
+
+.contact-form-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 5rem) 25rem 4rem;
+  grid-column: 1 / -1;
+  gap: 2.5rem;
+}
+
+.contact-form-section input,
+.contact-form-section textarea {
+  padding-left: 2rem;
+  color: #424242;
+  font-size: 1.6rem;
+  border: none;
+  box-shadow: var(--shadow);
+  line-height: 5rem;
+}
+
+.contact-form-section input::placeholder,
+.contact-form-section textarea::placeholder {
+  color: #424242;
+}
+
+.contact-form-section input[type="submit"] {
+  line-height: 4rem;
+  background-color: var(--tamna-pozadina);
+  color: #fff;
+  width: 17rem;
+  padding-left: 0;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.contact-form-section input[type="submit"]:hover {
+  background-color: #fff;
+  color: var(--tamna-pozadina);
+}
+
+#url,
+#poruka {
+  grid-column: 1 / -1;
 }
 
 /* Footer sekcija */
@@ -509,4 +600,76 @@ footer hr {
   background-color: #17191c;
   color: #616366;
   padding: 1.5rem 0;
+}
+
+@media all and (max-width: 1200px) {
+  .search,
+  .about-main,
+  .contact-main {
+    flex-direction: column;
+  }
+
+  .search p {
+    text-align: center;
+  }
+}
+
+@media all and (max-width: 981px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .hero__content {
+    min-height: 50vh;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .search form::before {
+    display: none;
+  }
+
+  .input__button {
+    line-height: 6rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    align-content: flex-end;
+  }
+
+  nav > a {
+    margin: 0;
+  }
+
+  nav i,
+  nav i:first-child {
+    border: none;
+  }
+
+  .main-nav.active {
+    top: 10.8rem;
+  }
+
+  .main-nav a {
+    font-size: 2.5rem;
+    line-height: 2;
+  }
+
+  .ikone {
+    order: -1;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .contact-article {
+    grid-template-rows: 300px auto 2fr;
+  }
+
+  .contact-article iframe,
+  .contact-main-info {
+    grid-column: 1 / -1;
+  }
 }
